@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.CtrlFiltres">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labNumero" prefWidth="62.0" styleClass="textBase" stylesheets="@style.css" text="Numéro">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtNumero" prefWidth="200.0" stylesheets="@style.css">
+                     <HBox.margin>
+                        <Insets bottom="13.0" left="13.0" top="13.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="bnSupprimerF1" mnemonicParsing="false" onAction="#clicSupprimerF1">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonDiscret">
+                           <image>
+                              <Image url="@cross-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labNom" prefWidth="62.0" styleClass="textBase" text="Nom">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtNom" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets bottom="13.0" left="13.0" top="13.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="bnSupprimerF2" mnemonicParsing="false" onAction="#clicSupprimerF2">
+                     <graphic>
+                        <ImageView fx:id="bnSupprimerF" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonDiscret">
+                           <image>
+                              <Image url="@cross-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labVille" prefWidth="62.0" styleClass="textBase" text="Adresse">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtVille" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets bottom="13.0" left="13.0" top="13.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="bnSupprimerF3" mnemonicParsing="false" onAction="#clicSupprimerF3">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonDiscret">
+                           <image>
+                              <Image url="@cross-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labPaiement" prefWidth="62.0" styleClass="textBase" text="Paiement">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="liste_moy_paiement" prefHeight="25.0" prefWidth="197.0">
+                     <HBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+                  <Button fx:id="bnSupprimerF4" mnemonicParsing="false" onAction="#clicSupprimerF4">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cross-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labDate" prefWidth="62.0" styleClass="textBase" text="Date">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <DatePicker fx:id="txtDate" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets bottom="13.0" left="13.0" top="13.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Button fx:id="bnSupprimerF5" mnemonicParsing="false" onAction="#clicSupprimerF5">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonDiscret">
+                           <image>
+                              <Image url="@cross-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <Button fx:id="bnClear" mnemonicParsing="false" onAction="#clicClear" styleClass="buttonDiscret" text="Clear">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="bnValider" mnemonicParsing="false" onAction="#clicValider" styleClass="buttonGlobal" text="Valider">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="bnAnnuler" mnemonicParsing="false" onAction="#clicAnnuler" styleClass="buttonEnAvant" text="Annuler">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <stylesheets>
+      <URL value="@style.css" />
+      <URL value="@style.css" />
+   </stylesheets>
+</BorderPane>

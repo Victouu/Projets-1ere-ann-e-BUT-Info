@@ -1,0 +1,63 @@
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+.root{
+    -fx-font-file : './PTSerif-Regular.ttf';
+    -fx-font-file : './Poppins-Regular.ttf';
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'PT Serif';
+    src: url('./PTSerif-Regular.ttf');
+}
+
+.rien{
+}
+
+.aa{
+}
+.textBase{
+    -fx-font-family: 'PT Serif', serif;
+    -fx-font-size: 15;
+    -fx-font-weight: normal;
+    -fx-text-fill: #26110D;
+}
+
+.Titre1{
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-size : 25;
+    -fx-font-weight : bold;
+    -fx-text-fill: #D96704;
+}
+
+.Titre2 {
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-size: 20;
+    -fx-font-weight: normal;
+    -fx-text-fill: #395873;
+}
+
+.buttonGlobal {
+    -fx-background-color: #F2AE72;
+}
+
+.buttonEnAvant {
+    -fx-background-color: #D96704;
+}
+
+.backgroundGlobal {
+    -fx-background-color: #F2E8DF
+    ;
+}
+
+.buttonDiscret{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+

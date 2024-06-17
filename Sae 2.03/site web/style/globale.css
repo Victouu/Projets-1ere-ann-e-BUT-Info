@@ -1,0 +1,86 @@
+/* FILEPATH: /home/etuinfo/librossard/Documents/sae2.03/style/globale.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Texte normal */
+body {
+    font-size: 1em;
+    color: #000000;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background: linear-gradient(178.6deg, rgb(131, 171, 204) 11.8%, rgb(190, 190, 190) 83.8%);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Titre principal */
+h1 {
+    font-size: 2em;
+    color: #000000;
+}
+
+/* Sous-titre */
+h2 {
+    font-size: 1.60em;
+    color: #000000;
+}
+
+h3 {
+    font-size: 1.30em;
+    color: #000000;
+}
+
+h4 {
+    font-size: 1.125em;
+    color: #000000;
+}
+
+h5 {
+    font-size: 1em;
+    color: #000000;
+}
+
+h6 {
+    font-size: 0.925em;
+    color: #000000;
+}
+
+/* Paragraphe */
+p {
+    font-size: 0.875em;
+    color: #000000;
+}
+
+/* Lien */
+a {
+    color: #000000;
+}
+
+/* Texte en gras */
+strong {
+    font-weight: bold;
+}
+
+/* Texte en italique */
+em {
+    font-style: italic;
+}
+
+/* Texte souligné */
+u {
+    text-decoration: underline;
+}

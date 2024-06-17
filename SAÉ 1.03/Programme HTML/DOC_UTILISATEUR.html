@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment avoir un joli terminal Linux ?</title>
+  </head>
+  <style>
+    body {
+      font-family: BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Ubuntu,
+        Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+    code {
+      background-color: rgb(240, 240, 237);
+    }
+    a {
+      color: rgb(52, 140, 255);
+    }
+  </style>
+  <body>
+    <header>
+      <h1>Comment avoir un joli terminal Linux ?</h1>
+    </header>
+    <main>
+      <h2>Etape 1 : Installer une Nerd font.</h2>
+
+      <p>
+        Pour ce tuto, il est impératif de télécharger une
+        <a href="https://www.nerdfonts.com/font-downloads">Nerd Fonts</a>.
+        (choisissez une police qui vous plaît !)
+      </p>
+
+      <p>
+        Il faut ensuite mettre cette police en police par défaut dans le
+        terminal.
+      </p>
+
+      <h2>Etape 2 : Installer <a href="https://starship.rs/">starhip</a></h2>
+
+      <p>Pour installer vous pouvez utilisez cette commande</p>
+
+      <blockquote>
+        <pre><li><code>curl -sS https://starship.rs/install.sh | sh</code></li></pre>
+      </blockquote>
+
+      <h2>Etape 3 : créer le fichier starship.toml</h2>
+
+      <p>
+        Dans un premier temps, il faut créer le dossier <code>.config</code> et
+        le fichier <code>starship.toml</code>
+      </p>
+      <blockquote>
+        <pre><li><code>mkdir -p ~/.config && touch ~/.config/starship.toml</code></li></pre>
+      </blockquote>
+      <p>
+        Quand cela est fait, revenez dans votre <code>home</code> si ce n'est
+        pas déjà le cas.
+      </p>
+
+      <p>
+        Il faut ensuite dire au terminal d'utiliser le fichier
+        <code>starship.toml</code> comme affichage de base, il faut donc
+        modifier le fichier <code>.bashrc</code>
+      </p>
+      <blockquote>
+        <pre><li><code>nano .bashrc</code></li></pre>
+      </blockquote>
+      <p>
+        Si cela ne fonctionne pas c'est que <code>.bashrc</code> ne se trouve
+        pas dans ce dossier.
+      </p>
+
+      <p>
+        Quand vous êtes dans <code>.bashrc</code>, il faut aller à la toute fin
+        du fichier et ajouter cette ligne :
+      </p>
+      <blockquote>
+        <pre><li><code>eval "$(starship init bash)"</code></li></pre>
+      </blockquote>
+      <p>
+        Maintenant votre terminal devrait avoir un nouvel affichage. (si ce
+        n'est pas le cas, relancer un nouveau terminal).
+      </p>
+
+      <h2>Etape 4 : configurer le fichier starship.toml</h2>
+
+      <p>
+        C'est maintenant que <b>starship</b> devient intéressant, car maintenant
+        il est possible de personnaliser votre terminal comme bon vous semble,
+        ou vous pouvez utiliser des templates disponibles sur internet.
+      </p>
+
+      <p>
+        Pour cela, vous allez devoir modifier le fichier
+        <code>starship.toml</code> qui se trouve dans le dossier
+        <code>.config</code>.
+      </p>
+
+      <p>Voici un exemple de configuration :</p>
+
+      <img
+        src="https://i.postimg.cc/pds2P1tx/image-1.png"
+        alt="exemple config starship"
+        title="exemple config starship"
+      />
+
+      <p>
+        <a href="https://gitlabiut.iutlan.univ-rennes1.fr/vroue/starship"
+          >Lien vers cette configuration (GitLab)</a
+        >
+      </p>
+
+      <p>Maintenant à vous de trouver une configuration qui vous plaît !</p>
+
+      <p><i>Merci d'avoir suivi ce tutoriel !</i></p>
+
+      <hr />
+    </main>
+    <footer>
+      <p><i>ROUE Victor</i></p>
+
+      <p><i>Equipe FEUR</i></p>
+    </footer>
+  </body>
+</html>
