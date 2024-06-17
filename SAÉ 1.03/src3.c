@@ -1,10 +1,4 @@
 /**
-* \page Général 
-* 
-* \author CHESNEL
-* \version 1.0
-* \date 23 Novembre 2023 
-*
 * Ce programme permet de jouer a un jeu de sudoku, Il lit un document avec une grille
 et lit les placements de valeur par des commandes. Il y une vérification pour empêcher
 de rentrer n'importe quel valeur a n'importe quel endroit, et enfin le jeu se fini
@@ -18,38 +12,18 @@ quand la grille est entièrement rempli.
 #include <string.h>
 #include <stdbool.h>
 
-/**
- * \def NB_LIGNE 
- * \brief correspond au nombre maximum de ligne que le tableau peut nous présenter.
-*/
-#define NB_LIGNE 9
+#define NB_LIGNE 9 /** correspond au nombre maximum de ligne que le tableau peut nous présenter. */
+
+#define NB_COLONNES 9 /** correspond au nombre maximum de colonne que le tableau peut nous présenter.*/
+
+#define NB_SQUARE 3 /** correspond au nombre de ligne & colonne d'un carré sur le tableau du sudoku. */
+
+typedef int tGrille[NB_LIGNE][NB_COLONNES]; /** type tableau de taille NB_LIGNE, par NB_COLONNE. C'est ce qui permet de définir la taille de la grille du sudoku. */
 
 /**
- * \def NB_COLONNE
- * \brief correspond au nombre maximum de colonne que le tableau peut nous présenter.
-*/
-#define NB_COLONNES 9
-
-/**
- * \def NB_SQUARE 
- * \brief correspond au nombre de ligne & colonne d'un carré sur le tableau du sudoku.
-*/
-#define NB_SQUARE 3
-
-/**
-* \typedef tGrille
-* \brief type tableau de taille NB_LIGNE ( \see NB_LIGNE ), par NB_COLONNE ( \see NB_COLONNE ).
-* C'est ce qui permet de définir la taille de la grille du sudoku.
-*/
-
-
-typedef int tGrille[NB_LIGNE][NB_COLONNES];
-
-/**
- * \fn void saisir(int* valeur)
  * \brief Elle permet de vérifier que la valeur est correcte
  * \param valeur il s'agit de la valeur qui sera vérifié dans la procèdure
- * Quand on l'utiliser elle va servir de scanf
+ * \detail Quand on l'utiliser elle va servir de scanf
  * Puis elle vérifiera que la valeur donnée respecte les contraintes
  * ne dépasse pas le tableau, est un entier.
  *  
@@ -87,11 +61,10 @@ void saisir(int* valeur)
 
 
 /**
- * \fn Procédure chargerGrille
- * \param g il s'agit de la grille qu'on utilise tout au long du jeu. Et donc celle qu'on charge.
  * \brief Elle permet de récupérer des grilles données de Sudoku
+ * \param g il s'agit de la grille qu'on utilise tout au long du jeu. Et donc celle qu'on charge.
  *
- * Cette procèdure permet de rentrer des grilles préchoisies, part des fichiers.
+ * Cette procèdure permet de rentrer des grilles préchoisies, par des fichiers.
 */
 
 void chargerGrille(tGrille g)
@@ -114,11 +87,10 @@ void chargerGrille(tGrille g)
 }
 
 /**
- * \fn void afficherGrille(tGrille grille)
  * \param grille il s'agit de la grille qu'on utilise tout au long du jeu. ici elle permet de remplir les cases.
  * \brief Cette procèdure permet d'afficher la grille.
 
- * C'est elle qui fais les colonnes ( \see NB_COLONNE ).
+ * \detail C'est elle qui fais les colonnes ( \see NB_COLONNE ).
  * C'est elle qui fais les lignes. ( \see NB_LIGNE)
  * C'est elle qui affiche les bornes de la grille.
  * C'est elle qui remplis les cases avec des nombres au 1er tour. ( \see void chargerGrille(tGrille g) )
@@ -168,20 +140,21 @@ void afficherGrille(tGrille grille)
     printf("\n     +---------+---------+---------+\n");
 }
 
-/**
- * \brief fin de l'initialisation des procèdures.
-*/
-
 
 /**
- * @fn bool possible(tGrille grille, int lig, int col, int val)
- * @brief Vérifie si la valeur et la position rentré en paramètre respectent les règles du sudoku.
+ * \brief Vérifie si la valeur et la position rentré en paramètre respectent les règles du sudoku.
  * 
- * @param grille il s'agit de la grille qu'on utilise tout au long du jeu. Ici elle ne change pas
- * @param lig La ligne choisie.
- * @param col La colonne choisie.
- * @param val La valeur choisie.
- * @return Renvoie true si le placement ne pose pas problème, sinon renvoie false.
+ * \param grille il s'agit de la grille qu'on utilise tout au long du jeu. Ici elle ne change pas
+ * \param lig La ligne choisie.
+ * \param col La colonne choisie.
+ * \param val La valeur choisie.
+ * \return Renvoie true si le placement ne pose pas problème, sinon renvoie false.
+ * \detail cette fonction récupère la ligne et la colonne de la valeur qu'on veut rentrer dans la grille
+ Elle vérifie a partir de ces données si la même valeur ne se trouve pas dans la même colonne, ou la même
+ ligne. Ensuite elle vérifie si elle ne se trouve pas dans la même case, en utilisant parcours_l & parcours_c
+ Ils permettent de toujours selectionner le début d'une case, en fonction de la colonne et la ligne rentrée.
+ Si l'une de ces 3 méthodes de recherche trouve la même valeur quand celle rentrée en paramètre, possible
+ nous renvoie "false" et un message nous expliquant ou est l'erreur.
  * 
  */
 
@@ -233,12 +206,13 @@ bool possible(tGrille grille, int lig, int col, int val)
 }
 
 /**
- * @fn bool remplie(tGrille grille1)
- * @brief Vérifie si la grille du sudoku est remplie ou non.
+ * \fn bool remplie(tGrille grille1)
+ * \brief Vérifie si la grille du sudoku est remplie ou non.
  * 
- * @param grille1 il s'agit de la grille qu'on utilise tout au long du jeu. Ici elle ne change pas
- * @return Renvoie true si la grille est remplie, sinon renvoie false.
- * 
+ * \param grille1 il s'agit de la grille qu'on utilise tout au long du jeu. Ici elle ne change pas
+ * \return Renvoie true si la grille est remplie, sinon renvoie false.
+ * \detail remplie parcours la grille entière et compte le nombre de case non remplie.
+ Si elle ne trouve aucune case non remplie, alors ça veut dire que le tableau est plein, elle nous renvoie alors "true".
  */
 
 bool remplie(tGrille grille1)
@@ -265,10 +239,9 @@ bool remplie(tGrille grille1)
 }
 
 /**
- * @fn int main()
- * @brief Il s'agit du programme principal, sur lequel le jeux se déroule.
+ * \brief Il s'agit du programme principal, sur lequel le jeux se déroule.
  * 
- * Le programme principal appelle chaque fonction et procèdures. Elle possède une boucle
+ * \detail Le programme principal appelle chaque fonction et procèdures. Elle possède une boucle
  * qui se répéte jusqu'à ce que la procèdure remplie renvoie false
  * Elle demandera la ligne, la colonne puis la valeur, vérifie si c'est possible puis
  * met ou non la valeur dans la grille. Quand la grille est remplie, le jeu est fini, et

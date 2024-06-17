@@ -7,7 +7,7 @@ Pour ce tuto, il est imperatif de telecharger une [Nerd Fonts](https://www.nerdf
 
 Il faut ensuite mettre cette police en police par défaut dans le terminal.
 
-## Etape 2 : Installer [starhip](https://starship.rs/)
+## Etape 2 : Installer [starship](https://starship.rs/)
 
 Pour installer vous pouvez utilisez cette commande
 

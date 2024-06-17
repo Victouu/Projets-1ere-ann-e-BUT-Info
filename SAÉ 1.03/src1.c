@@ -1,13 +1,9 @@
 /**
- * \BRIEF
- * \AUTHOR = Mateo Morvan
- * \CLASSE 1D1
- * \DATE = 23 11 2023
  * Ce programme nous demande des caractères et les stocks dans un tableaux. Qu'il comparent avec d'autres
- caractères dans un autre tableau. Il renvoie aussi le nombre de caractères dans le tableau. Il permet aussi
- de vérifier la présence d'un caractère dans le tableau de base. Il peut aussi comparer 2 tableau pour vérifier si les 2 tableaux sont identiques ou non.
- * 
-**/
+ * caractères dans un autre tableau. Il renvoie aussi le nombre de caractères dans le tableau. Il permet aussi
+ * de vérifier la présence d'un caractère dans le tableau de base. Il peut aussi comparer 2 tableau pour vérifier
+ * si les 2 tableaux sont identiques ou non.
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,57 +11,36 @@
 #include <string.h>
 
 
-/**
- * \def ETOILE
- * \brief permet d'écrire '*', qui permet de mettre fin a la saisie.
-*/
 
-const char ETOILE = '*';    
 
-/**
- * \def TAILLE_MAX
- * \brief correspond a la taille maximale des tableaux dans le programme.
-*/
+const char ETOILE = '*';   /** permet d'écrire '*', qui permet de mettre fin a la saisie. */
 
-#define TAILLE_MAX 15
 
-/**
- * \typedef tMot
- * \brief type tableau de taille TAILLE_MAX+1, Tout les tableaux du programme partent de ce type, et sont
- des caractères.
-*/
 
-typedef char tMot[TAILLE_MAX + 1];  // un octet en plus pour '*'
+#define TAILLE_MAX 15   /** correspond a la taille maximale des tableaux dans le programme. */
+
+
+
+typedef char tMot[TAILLE_MAX + 1];  /** type tableau de taille TAILLE_MAX+1, Tout les tableaux du programme partent de ce type, et sont des caractères. */
 
 
 /**
- * \fn void init(tMot m)
- * \brief Initialise le tableau avec des étoiles.
- * \param m c'est le tableau utilisé.
- */
-
-
-void init(tMot m){
-    int i;  // i va être notre compteur pour connaitre la case
-    for (i = 0; i < (TAILLE_MAX + 1); i++) // toujours un octet en plus pour '*'
-    {
-        m[i] = ETOILE; // fait que la case soit égal à ETOILE
-    }
-}
-
-/**
- * \fn void lireMot(tMot m)
- * \brief Elle permet de lire les mots entrées
+ * \detail deux paramètres char sont pris en compte,
+ * le fonction utilise un scanf dans une boucle qui
+ * s'arrête uniquement si on rentre une étoile au lieu 
+ * d'un caractère
+ * sinon la boucle peut s'arrêter si le mot est trop grand
+ * notez qu'on ne peut pas revenir en arrière, une faute
+ * de frappe et c'est tant pis, plus qu'a relancer.
  * \param m c'est le tableau utilisé
- * C'est la fonction qui permet de comparer les caractères entre eux, et les tableaux de caractères.
- *  
  */
 
-void  lireMot(tMot m){
-    char car;
+void  lireMot(tMot m)
+{
+    char car; 
     char entree;
     int i; 
-    i = 0;// i est encore notre compteur pour connaitre la case
+    i = 0; // i est encore notre compteur pour connaitre la case
     while ((car != ETOILE) && (i < TAILLE_MAX)) // tant que le caractère dans la case n'est pas égale à '*' le programme va continuer à s'executer 
     {
         printf("rentrez un caractère : ");
@@ -76,14 +51,13 @@ void  lireMot(tMot m){
 }
 
 /**
- * \fn void affiche(tMot m)
  * \brief Elle permet de d'afficher les caractères du tableau
- * \param m c'est le tableau utilisé
- * Elle affiche les mots représenter par les tableaux. 
- *  
+ * \detail Elle affiche les mots représenter par les tableaux, puisqu'elle affiche a la suite sans utiliser de backslash n (sauf a la fin).
+ * \param tMot m c'est le tableau qu'on affiche.
  */
 
-void affiche(tMot m){
+void affiche(tMot m)
+{
     int i;
     i=0; // i va nous servir de compteur
     while (m[i] != ETOILE) // de même que précedemment, que le caractère dans la case n'est pas égale à '*' le programme va continuer à s'executer 
@@ -95,17 +69,16 @@ void affiche(tMot m){
 }
 
 /**
- * \fn void longueur(tMot m)
  * \brief Elle permet de renvoyer la longueur du tableau
  * \param m c'est le tableau utilisé
  * \return renvoie la longueur du tableau 
- * Elle affiche le nombre de caractères présent dans le tableau, 15 étant son max,
- la fonction arrête de lire quand elle croise une étoile ( \see TAILLE_MAX), puisqu'aucun
- caractère ne figure après.
+ * \detail Elle affiche le nombre de caractères présent dans le tableau, 15 étant son max,
+ * la fonction arrête de lire quand elle croise une étoile , puisqu'aucun caractère ne figure après.
  *  
  */
 
-int longueur(tMot m){
+int longueur(tMot m)
+{
     int taille, i; // i va nous servir de compteur et taille va nous indiquer la taille du mot
     i = 0;
     taille = 0;
@@ -118,11 +91,11 @@ int longueur(tMot m){
 }
 
 /**
- * \fn void testelongueur()
  * \brief Teste la fonction longueur avec plusieurs tableaux. Elle sert uniquement a tester.
  */
 
-void testelongueur(){ // va nous permettre de tester la fonction longueur
+void testelongueur() // va nous permettre de tester la fonction longueur
+{ 
     int taille;
     tMot m1 = {'*'};
     tMot m2 = {'C', 'H', 'I', 'E', 'N', '*'};
@@ -139,15 +112,18 @@ void testelongueur(){ // va nous permettre de tester la fonction longueur
 }
 
 /**
- * \fn bool estDans(tMot m, char c)
  * \brief Permet de vérifier la présence d'un caractère dans le tableau.
- * \param m C'est le tableau utilisé
- *.
+ * \detail possède 3 variable (dont 2 de boucles)
+ * la boucle s'arrête quand l'un des variants de boucle
+ * atteint la taille maximum, ou qu'on trouve le mot.
+ * Auquel cas, la dernière variable res deviendra true. 
+ * \param m C'est le tableau utilisé.
  * \param c C'est le caractère que l'on recherche dans le tableau.
  * \return true si le caractère est présent, sinon false.
  */
 
-bool estDans(tMot m, char c){
+bool estDans(tMot m, char c)
+{
     bool res; // va enregistrer true ou false et le renvoyer 
     int stop; // va nous permettre de s'arrêter quand on aura res = true / m[i] == c
     int i; // i est notre compteur
@@ -171,14 +147,19 @@ bool estDans(tMot m, char c){
 }
 
 /**
- * \fn int compare(tMot m1, tMot m2)
  * \brief Compare deux tableaux afin de savoir s'ils sont identiques.
+ * \detail possède 2 variants de boucle, fonctionne un peu
+ * comme estDans, mais prends 2 paramètres, n'utilise
+ * pas estDans et compare 2 tableaux.
+ * res reverra true si les 2 tableaux sont identiques,
+ * Sinon, renvoie false.
  * \param m1 Premier tableau.
  * \param m2 Deuxième tableau.
  * \return true si les tableaux sont identiques, sinon false.
  */
 
-int compare(tMot m1, tMot m2){
+int compare(tMot m1, tMot m2)
+{
     bool res;
     int i; // i est notre compteur
     int stop;
@@ -201,11 +182,18 @@ int compare(tMot m1, tMot m2){
 }
 
 /**
- * \fn int main()
  * \brief Fonction principale du programme.
+ * \detail le programme vérifie en sois toutes les fonctions.
+ * Des tableaux sont fournis avec des mots pour vérifier
+ * La fonction compare, mais on remplis aussi un tableau
+ * grâce a la fonction LireMot, qui s'affiche avec 
+ * affiche, et nous renvoie la longueur du mot, et la 
+ * présence d'un caractère ou non dans le tableau
+ * 
  */
 
-int main(){
+int main()
+{
     char car = 'F'; // caractère 'F' pour la fonction estDans afin de la tester
     bool res; 
     tMot m; // on définie un tableau m dans le main

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Documentation technique</title>
+    <meta name="SAE1.03" content="" />
+    <style>
+    body{
+        background-color: bisque;
+        margin: 4;
+    }
+    
+    header{
+        background-color: #955e42;
+        color: white;
+        margin: 2em;
+        padding: 2em;
+        height: 5em;
+        text-align: center;
+        font-size: 3em;
+        border-radius: 0.5em;
+    }
+    
+    main > section {
+        background-color: burlywood;
+        margin: 6em;
+        padding: 3em;
+        border-radius: 0.5em;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    
+    main > section > .titrefichier {
+        background-color: #955e42;
+        height: 4em;
+        margin: 2em;
+        margin-bottom: 4em;
+        border-radius: 1em;
+        text-align: center;
+    }
+    
+    main > section > article , section > section > article{
+        background-color: wheat;
+        height: auto;
+        border-radius: 2em;
+    }
+    
+    main > section > article > p , section > section > article > p{
+       margin: 1em;
+    }
+    
+    main > section > article > h2{
+        background-color: #955e42;
+        color: white;
+        padding: 0.5em;
+        padding-left: 1em;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    section > section .titrefichier{
+        background-color: #955e42;
+        color: white;
+    }
+    
+    h3 {
+        margin: 1em;
+    }
+    
+    nav{
+        position: fixed;
+        top: 15%;
+        border: 1px;
+        border-style: solid;
+        border-color: #955e42;
+        border-radius: 2em;
+        text-align: center;
+        background-color: burlywood;
+        height: auto;
+        width: 8.5em;
+    }
+    
+    nav > p {
+        color: black;
+    }
+    
+    footer{
+        margin: 6em;
+        padding: 1em;
+        background-color: burlywood;
+        text-align: center;
+        border-radius: 0.5em;
+    }
+     
+    footer > h2{
+        background-color: #955e42;
+        color: white;
+        padding: 0.5em;
+        padding-left: 1em;
+        border-radius: 0.5em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+</head>
+
+<body>
+    <header id="titre"> 
+        <h1>DOC TECHNIQUE</h1>
+    </header>
+    <main><section id="src1.c"><article class="titrefichier"><h2>src1.c</h2></article><article><p>permet d'écrire '*', qui permet de mettre fin a la saisie.</p></article><article><p>correspond a la taille maximale des tableaux dans le programme.</p></article><article><p>type tableau de taille TAILLE_MAX+1, Tout les tableaux du programme partent de ce type, et sont des caractères.</p></article><section id="src1.c_description"><article class="titrefichier"><h3>DESCRIPTION</h3></article><article><p>Ce programme nous demande des caractères et les stocks dans un tableaux. Qu'il comparent avec d'autres<br />
+caractères dans un autre tableau. Il renvoie aussi le nombre de caractères dans le tableau. Il permet aussi<br />
+de vérifier la présence d'un caractère dans le tableau de base. Il peut aussi comparer 2 tableau pour vérifier<br />
+si les 2 tableaux sont identiques ou non.</p></article></section><section id="src1.c_fonctions et procedures"><article class="titrefichier"><h3>FONCTIONS ET PROCEDURES</h3></article><article><p><U>void  lireMot(tMot m):</U> <br>\detail deux paramètres char sont pris en compte,<br />
+le fonction utilise un scanf dans une boucle qui<br />
+s'arrête uniquement si on rentre une étoile au lieu <br />
+d'un caractère<br />
+sinon la boucle peut s'arrêter si le mot est trop grand<br />
+notez qu'on ne peut pas revenir en arrière, une faute<br />
+de frappe et c'est tant pis, plus qu'a relancer.<br />
+\param m c'est le tableau utilisé</p></article><article><p><U>void affiche(tMot m):</U> <br>\brief Elle permet de d'afficher les caractères du tableau<br />
+\detail Elle affiche les mots représenter par les tableaux, puisqu'elle affiche a la suite sans utiliser de backslash n (sauf a la fin).<br />
+\param tMot m c'est le tableau qu'on affiche.</p></article><article><p><U>int longueur(tMot m):</U> <br>\brief Elle permet de renvoyer la longueur du tableau<br />
+\param m c'est le tableau utilisé<br />
+\return renvoie la longueur du tableau <br />
+\detail Elle affiche le nombre de caractères présent dans le tableau, 15 étant son max,<br />
+la fonction arrête de lire quand elle croise une étoile , puisqu'aucun caractère ne figure après.</p></article><article><p><U>void testelongueur() // va nous permettre de tester la fonction longueur:</U> <br>\brief Teste la fonction longueur avec plusieurs tableaux. Elle sert uniquement a tester.</p></article><article><p><U>bool estDans(tMot m, char c):</U> <br>\brief Permet de vérifier la présence d'un caractère dans le tableau.<br />
+\detail possède 3 variable (dont 2 de boucles)<br />
+la boucle s'arrête quand l'un des variants de boucle<br />
+atteint la taille maximum, ou qu'on trouve le mot.<br />
+Auquel cas, la dernière variable res deviendra true. <br />
+\param m C'est le tableau utilisé.<br />
+\param c C'est le caractère que l'on recherche dans le tableau.<br />
+\return true si le caractère est présent, sinon false.</p></article><article><p><U>int compare(tMot m1, tMot m2):</U> <br>\brief Compare deux tableaux afin de savoir s'ils sont identiques.<br />
+\detail possède 2 variants de boucle, fonctionne un peu<br />
+comme estDans, mais prends 2 paramètres, n'utilise<br />
+pas estDans et compare 2 tableaux.<br />
+res reverra true si les 2 tableaux sont identiques,<br />
+Sinon, renvoie false.<br />
+\param m1 Premier tableau.<br />
+\param m2 Deuxième tableau.<br />
+\return true si les tableaux sont identiques, sinon false.</p></article><article><p><U>int main():</U> <br>\brief Fonction principale du programme.<br />
+\detail le programme vérifie en sois toutes les fonctions.<br />
+Des tableaux sont fournis avec des mots pour vérifier<br />
+La fonction compare, mais on remplis aussi un tableau<br />
+grâce a la fonction LireMot, qui s'affiche avec <br />
+affiche, et nous renvoie la longueur du mot, et la <br />
+présence d'un caractère ou non dans le tableau</p></article></section><section id="src1.c_define"><article class="titrefichier"><h3>DEFINE</h3></article><article><p>TAILLE_MAX 15   : correspond a la taille maximale des tableaux dans le programme.</p></article></section></section><section id="src2.c"><article class="titrefichier"><h2>src2.c</h2></article><article><p>Taille maximale d'une chaine quand on souhaite ordonner ses caractères.</p></article><article><p>caractère de la chaîne</p></article><article><p>pointeur sur l'élément suivant</p></article><article><p>Structure d'un élément d'une liste chaînée.</p></article><article><p>Un élément est composé d'un caractère et d'un pointeur sur le caractère suivant<br />
+(ou qui vaut NULL si c'est le dernier). Cette structure de données est récursive. Tandis que le type chaine permet de déclarer des chaines de caractères en tant que liste chaînée.</p></article><article><p>Type tableau de TMAX caractères.</p></article><article><p>la j'avoue je sais pas</p></article><section id="src2.c_description"><article class="titrefichier"><h3>DESCRIPTION</h3></article><article><p>Ce programme propose plusieurs opérations de manipulation<br />
+de chaînes de caractères où les chaînes sont implémentées<br />
+par des listes chainées de caractères.Programme de manipulation de chaînes de caractères.</p></article></section><section id="src2.c_fonctions et procedures"><article class="titrefichier"><h3>FONCTIONS ET PROCEDURES</h3></article><article><p><U>int main():</U> <br>\brief Programme principal.<br />
+\detail Le programme principal traite un exemple qui teste quelques fonctions :<br />
+il crée deux chaines, les affiche, puis ordonne la deuxième et l'affiche.<br />
+\return Code de sortie du programme (0 : sortie normale).</p></article><article><p><U>void init(chaine * ch):</U> <br>\brief Fonction qui initialise la chaine.<br />
+\detail Met à NULL la chaine passée en paramètre.<br />
+Cette fonction permet d'initialiser une chaîne. Elle doit être appelée à chaque utilisation de chaîne.<br />
+\param ch : paramètre de sortie qui représente la chaine à initialiser.</p></article><article><p><U>bool estV(chaine ch):</U> <br>\brief Fonction qui indique si une chaine est vide.<br />
+\param ch : paramètre d'entrée qui représente la chaine à tester.<br />
+\return true si la chaine est vide, false sinon.</p></article><article><p><U>void ajT(chaine * ch, char c):</U> <br>\brief Ajout d'un caractère en tête.<br />
+\detail Après une allocation dynamique, ajoute le nouvel élément au début de la liste chaînée.<br />
+\param ch : paramètre d'entrée/sortie qui représente la chaine à modifier.<br />
+\param c: paramètre d'entrée qui représente le caractère à ajouter.</p></article><article><p><U>void ajQ(chaine * ch, char c):</U> <br>\brief Ajout d'un caractère en queue. <br />
+\detail Après une allocation dynamique, ajoute le nouvel élément à la fin de la liste chaînée.<br />
+\param ch : paramètre d'entrée/sortie qui représente la chaine à modifier.<br />
+\param c: paramètre d'entrée qui représente le caractère à ajouter.</p></article><article><p><U>int nbC(chaine ch):</U> <br>\brief Calcule la taille d'une chaîne.<br />
+\detail Parcours complet de la liste chaînée pour compter le nombre de ses éléments.<br />
+\param ch : paramètre d'entrée qui représente la chaine dont on veut connaître la taille.<br />
+\return le nombre de caractères présents dans la chaîne.</p></article><article><p><U>void aff(chaine ch):</U> <br>\brief Affiche une chaîne à l'écran.<br />
+\detail Parcours complet de la liste chaînée pour afficher chacun de ses éléments (le champ  <br />
+'lettre').<br />
+\param ch : paramètre d'entrée qui représente la chaine à afficher.</p></article><article><p><U>bool ide(chaine ch1, chaine ch2):</U> <br>\brief Indique si deux chaînes sont identiques.<br />
+\param ch1 : paramètre d'entrée qui représente la première chaîne.<br />
+\param ch2 : paramètre d'entrée qui représente la deuxième chaîne.<br />
+\return true si les deux chaînes sont identiques, false sinon.<br />
+\detail Parcourt parallèlement les deux listes chaînées, caractère par caractère,<br />
+tant que les caractères correspondants sont les mêmes.</p></article><article><p><U>void inv(chaine ch1, chaine * ch2):</U> <br>\brief Inverse l'ordre des caractères dans une chaîne.<br />
+\param ch1 : paramètre d'entrée qui représente la chaîne à inverser.<br />
+\param ch2 : paramètre de sortie qui représente la nouvelle chaîne construite.<br />
+\detail Parcourt la première liste et ajoute chaque élément en tête de la deuxième.<br />
+ATTENTION : ch2 doit être initialisée par la procédure/fonction appelante.</p></article><article><p><U>bool pal(chaine ch1):</U> <br>\brief Indique si une chaîne est un palindrome.<br />
+\param ch1 : paramètre d'entrée qui représente la chaîne à tester.<br />
+\return true si les deux chaînes sont identiques, false sinon.<br />
+\detail Une chaîne est un palindrome si elle est identique à son inverse.</p></article><article><p><U>bool app(chaine ch, char c):</U> <br>\brief Indique si un caractère fait partie d'une chaîne.<br />
+\param ch : paramètre d'entrée qui représente la chaîne à tester.<br />
+\param c : paramètre d'entrée qui représente le caractère à tester.<br />
+\return true si le caractère est présent dans la chaîne, false sinon.<br />
+\detail Effectue une recherche séquentielle de c dans la liste chaînée ch.</p></article><article><p><U>bool supprimer(chaine * ch, char c):</U> <br>\brief Supprime un caractère d'une chaîne.<br />
+\param ch : paramètre d'entrée/sortie qui représente la chaîne à modifier.<br />
+\param c : paramètre d'entrée qui représente le caractère à enlever.<br />
+\return true si la suppression a eu lieu (ie si le caractère est présent), false sinon.<br />
+\detail ATTENTION : cette fonction ne supprime que la première occurrence du caractère.</p></article><article><p><U>bool ana(chaine ch1, chaine ch2):</U> <br>\brief Indique si deux chaînes sont anagrammes l'une de l'autre.<br />
+\param ch1 : paramètre d'entrée qui représente la première chaîne.<br />
+\param ch2 : paramètre d'entrée qui représente le deuxième chaîne.<br />
+\return true si les deux chaînes sont anagrammes l'une de l'autre, false sinon.<br />
+\detail La fonction teste si les deux chaînes sont composées des mêmes caractères. Elle parcourt la liste ch1.<br />
+A chaque element, elle enlève dans ch2 le caractère courant correspondant * de ch1 s'il existe.<br />
+S'il n'existe pas, le résultat est faux, arrêt du parcours. Mais si à la fin du parcours * de ch1,<br />
+ch2 est vide alors c'est OK.<br />
+ATTENTION, dans cette fonction la chaine ch2 est modifiée, donc plus utilisable à la fin.</p></article><article><p><U>int LvT(chaine ch, typTab t):</U> <br>\brief Recopie les caractères d'une chaîne dans un tableau.<br />
+\param ch : paramètre d'entrée qui représente la chaîne à copier.<br />
+\param t : paramètre d'entrée/sortie qui représente le tableau.<br />
+\return La taille de la chaîne ou -1 si cette taille dépasse TMAX.<br />
+\detail La fonction est utilisée par la fonction ord(). Elle copie les caractères d'une Liste<br />
+dans un tableau A CONDITION que la taille de la chaîne soit inférieure ou égale à TMAX.</p></article><article><p><U>void TvL(typTab t, chaine * ch, int N):</U> <br>\brief Recopie les caractères d'une chaîne dans un tableau.<br />
+\param t : paramètre d'entrée/sortie qui représente le tableau à recopier.<br />
+\param ch : paramètre de sortie qui représente la chaîne résultat.<br />
+\param N: paramètre d'entrée qui représente le nombre de caractères à recopier.<br />
+\see ord()<br />
+\detail La fonction est utilisée par la fonction ord(). Elle ajoute un à un les caractères du tableau<br />
+à une liste (ajout en queue).<br />
+ATTENTION : ch doit être initialisée par la procédure/fonction appelante.</p></article><article><p><U>void trT(typTab t, int N):</U> <br>\brief Trie les éléments d'un tableau de caractères.<br />
+\param t : paramètre d'entrée/sortie qui représente le tableau à trier.<br />
+\param N: paramètre d'entrée qui représente le nombre de caractères du tableau.<br />
+\detail La fonction utilise le tri par insertion. Elle ordonne les éléments de manière croissante.</p></article><article><p><U>void ord(chaine * ch):</U> <br>\brief Ordonne les caractères d'une chaîne par ordre croissant.<br />
+\param t : paramètre d'entrée/sortie qui représente la chaîne à ordonner.<br />
+\detail La fonction utilise les fonctions LvT, trT et TvL pour respectivement :<br />
+- copier les caractères de la liste dans un tableau,<br />
+- trier le tableau,<br />
+- et recopier les caractères du tableau dans la liste.<br />
+ATTENTION : la chaine doit faire moins de TMAX caractères.</p></article></section><section id="src2.c_define"><article class="titrefichier"><h3>DEFINE</h3></article><article><p>TMAX 20 : Taille maximale d'une chaine quand on souhaite ordonner ses caractères.</p></article></section></section><section id="src3.c"><article class="titrefichier"><h2>src3.c</h2></article><article><p>correspond au nombre maximum de ligne que le tableau peut nous présenter.</p></article><article><p>correspond au nombre maximum de colonne que le tableau peut nous présenter.</p></article><article><p>correspond au nombre de ligne & colonne d'un carré sur le tableau du sudoku.</p></article><article><p>type tableau de taille NB_LIGNE, par NB_COLONNE. C'est ce qui permet de définir la taille de la grille du sudoku.</p></article><section id="src3.c_description"><article class="titrefichier"><h3>DESCRIPTION</h3></article><article><p>Ce programme permet de jouer a un jeu de sudoku, Il lit un document avec une grille<br />
+et lit les placements de valeur par des commandes. Il y une vérification pour empêcher<br />
+de rentrer n'importe quel valeur a n'importe quel endroit, et enfin le jeu se fini<br />
+quand la grille est entièrement rempli.</p></article></section><section id="src3.c_fonctions et procedures"><article class="titrefichier"><h3>FONCTIONS ET PROCEDURES</h3></article><article><p><U>void saisir(int* valeur):</U> <br>\brief Elle permet de vérifier que la valeur est correcte<br />
+\param valeur il s'agit de la valeur qui sera vérifié dans la procèdure<br />
+\detail Quand on l'utiliser elle va servir de scanf<br />
+Puis elle vérifiera que la valeur donnée respecte les contraintes<br />
+ne dépasse pas le tableau, est un entier.</p></article><article><p><U>void chargerGrille(tGrille g):</U> <br>\brief Elle permet de récupérer des grilles données de Sudoku<br />
+\param g il s'agit de la grille qu'on utilise tout au long du jeu. Et donc celle qu'on charge.<br />
+* Cette procèdure permet de rentrer des grilles préchoisies, par des fichiers.</p></article><article><p><U>void afficherGrille(tGrille grille):</U> <br>\param grille il s'agit de la grille qu'on utilise tout au long du jeu. ici elle permet de remplir les cases.<br />
+\brief Cette procèdure permet d'afficher la grille.<br />
+\detail C'est elle qui fais les colonnes ( \see NB_COLONNE ).<br />
+C'est elle qui fais les lignes. ( \see NB_LIGNE)<br />
+C'est elle qui affiche les bornes de la grille.<br />
+C'est elle qui remplis les cases avec des nombres au 1er tour. ( \see void chargerGrille(tGrille g) )<br />
+C'est aussi elle qui affiche les points donc.<br />
+Sans elle, le programme n'apparaîtrai pas comme un jeu.</p></article><article><p><U>bool possible(tGrille grille, int lig, int col, int val):</U> <br>\brief Vérifie si la valeur et la position rentré en paramètre respectent les règles du sudoku.<br />
+* \param grille il s'agit de la grille qu'on utilise tout au long du jeu. Ici elle ne change pas<br />
+\param lig La ligne choisie.<br />
+\param col La colonne choisie.<br />
+\param val La valeur choisie.<br />
+\return Renvoie true si le placement ne pose pas problème, sinon renvoie false.<br />
+\detail cette fonction récupère la ligne et la colonne de la valeur qu'on veut rentrer dans la grille<br />
+ Elle vérifie a partir de ces données si la même valeur ne se trouve pas dans la même colonne, ou la même<br />
+ ligne. Ensuite elle vérifie si elle ne se trouve pas dans la même case, en utilisant parcours_l & parcours_c<br />
+ Ils permettent de toujours selectionner le début d'une case, en fonction de la colonne et la ligne rentrée.<br />
+ Si l'une de ces 3 méthodes de recherche trouve la même valeur quand celle rentrée en paramètre, possible<br />
+ nous renvoie "false" et un message nous expliquant ou est l'erreur.</p></article><article><p><U>bool remplie(tGrille grille1):</U> <br>\fn bool remplie(tGrille grille1)<br />
+\brief Vérifie si la grille du sudoku est remplie ou non.<br />
+* \param grille1 il s'agit de la grille qu'on utilise tout au long du jeu. Ici elle ne change pas<br />
+\return Renvoie true si la grille est remplie, sinon renvoie false.<br />
+\detail remplie parcours la grille entière et compte le nombre de case non remplie.<br />
+ Si elle ne trouve aucune case non remplie, alors ça veut dire que le tableau est plein, elle nous renvoie alors "true".</p></article><article><p><U>int main():</U> <br>\brief Il s'agit du programme principal, sur lequel le jeux se déroule.<br />
+* \detail Le programme principal appelle chaque fonction et procèdures. Elle possède une boucle<br />
+qui se répéte jusqu'à ce que la procèdure remplie renvoie false<br />
+Elle demandera la ligne, la colonne puis la valeur, vérifie si c'est possible puis<br />
+met ou non la valeur dans la grille. Quand la grille est remplie, le jeu est fini, et<br />
+un message s'envoie.</p></article></section><section id="src3.c_define"><article class="titrefichier"><h3>DEFINE</h3></article><article><p>NB_LIGNE 9 : correspond au nombre maximum de ligne que le tableau peut nous présenter.</p></article><article><p>NB_COLONNES 9 : correspond au nombre maximum de colonne que le tableau peut nous présenter.</p></article><article><p>NB_SQUARE 3 : correspond au nombre de ligne & colonne d'un carré sur le tableau du sudoku.</p></article></section></section></main>
+<footer>
+    <h2 id="pdp">Pied de page</h2>
+    <p>SAE1.03</p>
+    <p>Groupe 1D1 / équipe FEUR</p>
+    <p>Mateo MORVAN  Victor ROUÉ  Yann CHESNEL  Baptiste LAÎNÉ</p>
+</footer>
+</body>
+</html>
